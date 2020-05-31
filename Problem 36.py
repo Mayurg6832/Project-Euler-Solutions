@@ -1,17 +1,4 @@
-def rev_bit(n):
-    rev=0
-    while n>0:
-        rev=rev<<1
-        if n&1==1:
-            rev^=1
-        n=n>>1
-    return rev
-
-def is_palin_bin(n):
-    rev=rev_bit(n)
-    return (n==rev)
-
-def is_palin_int(n):
+def is_palin(n):
     s=str(n)
     i=0
     j=len(s)-1
@@ -30,6 +17,7 @@ def is_palin_int(n):
 
 sum=0
 for n in range(1,1000001):
-    if is_palin_int(n) and is_palin_bin(n):
+    b=bin(n)
+    if is_palin(n) and is_palin(b[2:]):
         sum+=n
 print(sum)
